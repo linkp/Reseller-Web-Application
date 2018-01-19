@@ -48,8 +48,8 @@ Microsoft.WebPortal.ProcessOrderPresenter = function (webPortal, feature, proces
     }
 
     self.apiUrl = "";
-    var existingCustomerOrderUrl = "api/Order/Process" + "?paymentId=" + paymentId + "&payerId=" + self.viewModel.PayerID + "&orderId=" + self.viewModel.orderId;
-    var newCustomerOrderUrl = "api/Order/NewCustomerProcessOrder" + "?customerId=" + self.viewModel.customerId + "&paymentId=" + paymentId + "&payerId=" + self.viewModel.PayerID;
+    var existingCustomerOrderUrl = "api/Order/Process" + "?paymentId=" + paymentId + "&payerId=" + txnId + "&orderId=" + self.viewModel.orderId;
+    var newCustomerOrderUrl = "api/Order/NewCustomerProcessOrder" + "?customerId=" + self.viewModel.customerId + "&paymentId=" + paymentId + "&payerId=" + txnId;
 
     if (self.viewModel.customerId != null) {
         self.apiUrl = newCustomerOrderUrl;

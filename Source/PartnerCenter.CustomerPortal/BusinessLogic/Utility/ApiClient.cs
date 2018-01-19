@@ -32,7 +32,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Utility
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", header.Get("Authorization"));
             T data = default(T);
-            HttpResponseMessage response = await client.PostAsync(string.Empty, null);
+            HttpResponseMessage response = await client.PostAsync(path, null);
             if (response.IsSuccessStatusCode)
             {
                 data = await response.Content.ReadAsAsync<T>();

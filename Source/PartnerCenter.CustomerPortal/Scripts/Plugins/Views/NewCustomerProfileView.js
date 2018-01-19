@@ -47,6 +47,9 @@ Microsoft.WebPortal.Views.NewCustomerProfileView = function (webPortal, elementS
             case "US":
                 return ([{ Id: "US", Name: this.webPortal.Resources.Strings.Countries.US }]);
                 break;
+        	case "IN":
+        		return ([{ Id: "IN", Name: this.webPortal.Resources.Strings.Countries.IN }]);
+        		break;
             case "AT":
             case "BE":
             case "BG":

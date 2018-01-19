@@ -81,7 +81,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
                 if (form.Count > 0)
                 {
                     ViewBag.paymentId = form["txnid"];
-                    ////SessionWrapper.SetSessionData("paymentResponse", form);
+                    ViewBag.txnId = form["payuMoneyId"];
                 }
 
                 return this.View();
