@@ -90,7 +90,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce
             var lineItemsWithOffers = await this.AssociateWithPartnerOffersAsync(purchaseLineItems);
             ICollection<IBusinessTransaction> subTransactions = new List<IBusinessTransaction>();            
 
-            // prepare payment authorization
+            //// prepare payment authorization
             var paymentAuthorization = new AuthorizePayment(this.PaymentGateway);
             subTransactions.Add(paymentAuthorization);
 
@@ -111,7 +111,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce
 
             subTransactions.Add(persistSubscriptionsAndPurchases);
 
-            // configure a capture payment transaction and let it read the auth code from the payment authorization output
+            //// configure a capture payment transaction and let it read the auth code from the payment authorization output
             var capturePayment = new CapturePayment(this.PaymentGateway, () => paymentAuthorization.Result);
             subTransactions.Add(capturePayment);
             

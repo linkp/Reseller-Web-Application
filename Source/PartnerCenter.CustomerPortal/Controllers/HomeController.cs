@@ -25,8 +25,9 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
         /// <summary>
         /// Serves the single page application to the browser.
         /// </summary>
+        /// <param name="form">form data</param>
         /// <returns>The SPA markup.</returns>
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(FormCollection form)
         {
             try
             {
@@ -75,6 +76,12 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
                 if (Resources.Culture.TwoLetterISOLanguageName.ToLowerInvariant() != "en")
                 {
                     ViewBag.ValidatorMessagesSrc = string.Format("https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/localization/messages_{0}.js", Resources.Culture.TwoLetterISOLanguageName);
+                }
+
+                if (form.Count > 0)
+                {
+                    ViewBag.paymentId = form["txnid"];
+                    ////SessionWrapper.SetSessionData("paymentResponse", form);
                 }
 
                 return this.View();

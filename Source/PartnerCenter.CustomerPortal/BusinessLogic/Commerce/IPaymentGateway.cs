@@ -51,5 +51,27 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce
         /// <param name="customerId">The Customer Id.</param>
         /// <returns>The order associated with this payment transaction.</returns>
         Task<OrderViewModel> GetOrderDetailsFromPaymentAsync(string payerId, string paymentId, string orderId, string customerId);
+
+        /// <summary>
+        /// Retrieves the order details maintained for the payment gateway.  
+        /// </summary>
+        /// <param name="paymentData">The payment data.</param>
+        /// <returns>The order associated with this payment transaction.</returns>
+        Task<OrderViewModel> GetOrderDetailsFromPaymentAsync(System.Web.Mvc.FormCollection paymentData);
+
+        /// <summary>
+        /// validate payment configuration.
+        /// </summary>
+        /// <param name="paymentConfiguration">The paymentConfiguration contains all the payment configuration data.</param>
+        void ValidateConfiguration(PaymentConfiguration paymentConfiguration);
+
+        /// <summary>
+        /// creates web experience profile.
+        /// </summary>
+        /// <param name="paymentConfig">The payment configuration</param>
+        /// <param name="brandConfig">The brand configuration</param>
+        /// <param name="countryIso2Code">The country code</param>
+        /// <returns>returns web profile id</returns>
+        string CreateWebExperienceProfile(PaymentConfiguration paymentConfig, BrandingConfiguration brandConfig, string countryIso2Code);
     }
 }

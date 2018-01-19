@@ -262,9 +262,20 @@
     <Compile Include="BusinessLogic\Commerce\CustomerRegistrationRepository.cs" />
     <Compile Include="BusinessLogic\Commerce\OrderNormalizer.cs" />
     <Compile Include="BusinessLogic\Commerce\OrdersRepository.cs" />
+    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PaymentGatewayConfig.cs" />
+    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayU\PayUConstant.cs" />
+    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayU\PayUGateway.cs" />
+    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayU\PayUMoneyApiCalls.cs" />
+    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayU\PayUMoneyPaymentResponse.cs" />
+    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayU\PayUMoneyRefundResponse.cs" />
+    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayU\PayUTxnStatusResponse.cs" />
+    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayU\PostBackParam.cs" />
     <Compile Include="BusinessLogic\Commerce\PaymentGateways\PreApprovalGateway.cs" />
+    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayU\Result.cs" />
+    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayU\TxnResult.cs" />
     <Compile Include="BusinessLogic\Commerce\PreApprovedCustomersRepository.cs" />
     <Compile Include="BusinessLogic\TelemetryService.cs" />
+    <Compile Include="BusinessLogic\Utility\ApiClient.cs" />
     <Compile Include="Controllers\CustomerAccountController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PartnerOfferController.cs" />
@@ -364,7 +375,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Content Include="Content\Styles\Plugins\CustomerManagementSetup.css" />
+    <Content Include="Scripts\Plugins\AddSubscriptionsPresenterPayU.js" />
     <Content Include="Scripts\Plugins\CustomerManagementSetupPresenter.js" />
+    <Content Include="Scripts\Plugins\CustomerRegistrationPresenterPayU.js" />
+    <Content Include="Scripts\Plugins\PayUPaymentSetupPresenter.js" />
+    <Content Include="Scripts\Plugins\ProcessOrderPresenterPayU.js" />
+    <Content Include="Scripts\Plugins\UpdateSubscriptionsPresenterPayU.js" />
     <Content Include="Scripts\WebPortal\Dependencies\appinsights.js" />
     <Compile Include="Startup.cs" />
     <Compile Include="Telemetry\ApplicationInsightsTelemetryProvider.cs" />
@@ -465,6 +481,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Configuration\WebPortalConfigurationPayU.json" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -580,6 +597,7 @@
     <Content Include="Views\Shared\UpdateContactInformation.cshtml" />
     <Content Include="Views\Shared\UpdateCompanyInformation.cshtml" />
     <Content Include="Views\Shared\CustomerManagementSetup.cshtml" />
+    <Content Include="Views\Shared\PayUPaymentSetup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

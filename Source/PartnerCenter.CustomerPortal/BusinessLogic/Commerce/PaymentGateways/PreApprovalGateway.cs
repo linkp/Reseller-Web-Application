@@ -97,6 +97,16 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         }
 
         /// <summary>
+        /// Retrieves order view.
+        /// </summary>
+        /// <param name="paymentData">payment data.</param>
+        /// <returns>returns order view.</returns>
+        public async Task<OrderViewModel> GetOrderDetailsFromPaymentAsync(System.Web.Mvc.FormCollection paymentData)
+        {
+            return await this.GetOrderDetails(paymentData["udf1"], paymentData["productinfo"], paymentData["udf2"]);
+        }
+
+        /// <summary>
         /// Stub to Void payment.
         /// </summary>
         /// <param name="authorizationCode">The authorization code for the payment to void.</param>
@@ -105,6 +115,40 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         {
             // clean up the order item. 
             await ApplicationDomain.Instance.CustomerOrdersRepository.DeleteAsync(this.orderId, this.customerId);
+        }
+
+        /// <summary>
+        /// Validates payment configuration. 
+        /// </summary>
+        /// <param name="paymentConfig">The Payment configuration.</param>
+        public void ValidateConfiguration(PaymentConfiguration paymentConfig)
+        {
+            ////No need to implement this method
+        }
+
+        /// <summary>
+        /// Creates Web Experience profile using portal branding and payment configuration. 
+        /// </summary>
+        /// <param name="paymentConfig">The Payment configuration.</param>
+        /// <param name="brandConfig">The branding configuration.</param>
+        /// <param name="countryIso2Code">The locale code used by the web experience profile. Example-US.</param>
+        /// <returns>The created web experience profile id.</returns>
+        public string CreateWebExperienceProfile(PaymentConfiguration paymentConfig, BrandingConfiguration brandConfig, string countryIso2Code)
+        {
+            ////no need to implement this method
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// Retrieves order view.
+        /// </summary>
+        /// <param name="v1">v1 data.</param>
+        /// <param name="v2">v2 data.</param>
+        /// <param name="v3">v3 data.</param>
+        /// <returns>returns order view.</returns>
+        private Task<OrderViewModel> GetOrderDetails(string v1, string v2, string v3)
+        {
+            throw new NotImplementedException();
         }
     }
 }

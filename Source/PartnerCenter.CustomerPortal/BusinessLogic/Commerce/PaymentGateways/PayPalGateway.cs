@@ -55,7 +55,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// Validates payment configuration. 
         /// </summary>
         /// <param name="paymentConfig">The Payment configuration.</param>
-        public static void ValidateConfiguration(PaymentConfiguration paymentConfig)
+        public void ValidateConfiguration(PaymentConfiguration paymentConfig)
         {
             string[] supportedPaymentModes = { "sandbox", "live" };
 
@@ -106,7 +106,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// <param name="brandConfig">The branding configuration.</param>
         /// <param name="countryIso2Code">The locale code used by the web experience profile. Example-US.</param>
         /// <returns>The created web experience profile id.</returns>
-        public static string CreateWebExperienceProfile(PaymentConfiguration paymentConfig, BrandingConfiguration brandConfig, string countryIso2Code)
+        public string CreateWebExperienceProfile(PaymentConfiguration paymentConfig, BrandingConfiguration brandConfig, string countryIso2Code)
         {
             try
             {
@@ -380,6 +380,28 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
             this.paymentId = paymentId;
 
             return await this.GetOrderDetails();
+        }
+
+        /// <summary>
+        /// Retrieves order view.
+        /// </summary>
+        /// <param name="paymentData">payment data.</param>
+        /// <returns>returns order view.</returns>
+        public async Task<OrderViewModel> GetOrderDetailsFromPaymentAsync(System.Web.Mvc.FormCollection paymentData)
+        {
+            return await this.GetOrderDetails(paymentData["udf1"], paymentData["productinfo"], paymentData["udf2"]);
+        }
+
+        /// <summary>
+        /// Retrieves order view.
+        /// </summary>
+        /// <param name="v1">v1 data.</param>
+        /// <param name="v2">v2 data.</param>
+        /// <param name="v3">v3 data.</param>
+        /// <returns>returns order view.</returns>
+        private Task<OrderViewModel> GetOrderDetails(string v1, string v2, string v3)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

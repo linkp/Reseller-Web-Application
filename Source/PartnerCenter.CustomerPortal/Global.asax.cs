@@ -34,6 +34,9 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal
             FilterConfig.RegisterGlobalMvcFilters(GlobalFilters.Filters);
             FilterConfig.RegisterWebApiFilters(GlobalConfiguration.Configuration.Filters);
 
+            // intialize our application domain
+            ApplicationDomain.InitializeAsync().Wait();
+
             // configure the web portal client application
             string portalConfigurationPath = ApplicationConfiguration.WebPortalConfigurationFilePath;
 
@@ -41,9 +44,6 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal
             {
                 throw new ConfigurationErrorsException("WebPortalConfigurationPath setting not found in web.config");
             }
-
-            // intialize our application domain
-            ApplicationDomain.InitializeAsync().Wait();
 
             // create the web portal configuration manager
             IWebPortalConfigurationFactory webPortalConfigFactory = new WebPortalConfigurationFactory();
