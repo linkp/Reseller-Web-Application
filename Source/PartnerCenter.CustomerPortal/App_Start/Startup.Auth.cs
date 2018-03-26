@@ -35,14 +35,14 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal
         /// </summary>
         /// <param name="app">The application to configure.</param>
         public void ConfigureAuth(IAppBuilder app)
-        {            
-            app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);            
+        {
+            app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions { });
 
             app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
-                {                    
+                {
                     ClientId = ApplicationConfiguration.ActiveDirectoryClientID,
                     Authority = ApplicationConfiguration.ActiveDirectoryEndPoint + "common",
                     TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters
@@ -54,7 +54,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal
                     Notifications = new OpenIdConnectAuthenticationNotifications()
                     {
                         RedirectToIdentityProvider = (context) =>
-                        {                            
+                        {
                             context.ProtocolMessage.Parameters.Add("lc", Resources.Culture.LCID.ToString());
                             return Task.FromResult(0);
                         },
@@ -123,7 +123,10 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal
                         AuthenticationFailed = (context) =>
                         {
                             // redirect to the error page
-                            context.OwinContext.Response.Redirect("/Home/Error?errorMessage=" + context.Exception.Message);
+                            string errorMessage = (context.Exception.InnerException == null) ? 
+                                context.Exception.Message : context.Exception.InnerException.Message;
+                            context.OwinContext.Response.Redirect($"/Home/Error?errorMessage={errorMessage}");
+
                             context.HandleResponse();
                             return Task.FromResult(0);
                         }
