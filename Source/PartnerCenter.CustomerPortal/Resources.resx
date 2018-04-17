@@ -1192,7 +1192,7 @@
     <value>Manage customers for pre-approved transactions.</value>
   </data>
   <data name="CustomerManagementSubText" xml:space="preserve">
-      <value>“Select all” will mark all current and future customers as pre-approved to transact in the store front.</value>
+    <value>“Select all” will mark all current and future customers as pre-approved to transact in the store front.</value>
   </data>
   <data name="CustomerManagementAllCustomersToggleCaption" xml:space="preserve">
     <value>Select all</value>
@@ -1253,5 +1253,17 @@
   </data>
   <data name="PayUAuthSubText" xml:space="preserve">
     <value>Enter your PayU Authorization</value>
+  </data>
+  <data name="PayUPaymentConfigurationHeader" xml:space="preserve">
+    <value>Provide your PayUMoney Merchant account settings</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPostfix" xml:space="preserve">
+    <value>to create a new merchant account if you do not have one.</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPrefix" xml:space="preserve">
+    <value>To receive payments from your customers, you should use a PayUMoney Merchant account, please visit:</value>
+  </data>
+  <data name="PayUWebsiteCaption" xml:space="preserve">
+    <value>payumoney.com</value>
   </data>
 </root>

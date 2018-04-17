@@ -102,19 +102,30 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic
         public CustomerRegistrationRepository CustomerRegistrationRepository { get; private set; }
 
         /// <summary>
+        /// Initializes the core application domain objects.
+        /// </summary>
+        /// <returns>A task.</returns>
+        public static async Task BootstrapAsync()
+        {
+            if (Instance == null)
+            {
+                Instance = new ApplicationDomain();
+                Instance.PartnerCenterClient = await AcquirePartnerCenterAccessAsync();
+                Instance.PortalLocalization = new PortalLocalization(Instance);
+                await Instance.PortalLocalization.InitializeAsync();
+            }
+        }
+
+        /// <summary>
         /// Initializes the application domain objects.
         /// </summary>
         /// <returns>A task.</returns>
         public static async Task InitializeAsync()
         {
-            if (Instance == null)
+            if (Instance != null)
             {
-                Instance = new ApplicationDomain();
-
                 Instance.AzureStorageService = new AzureStorageService(ApplicationConfiguration.AzureStorageConnectionString, ApplicationConfiguration.AzureStorageConnectionEndpointSuffix);
                 Instance.CachingService = new CachingService(Instance, ApplicationConfiguration.CacheConnectionString);
-                Instance.PartnerCenterClient = await AcquirePartnerCenterAccessAsync();
-                Instance.PortalLocalization = new PortalLocalization(Instance);                
                 Instance.OffersRepository = new PartnerOffersRepository(Instance);
                 Instance.MicrosoftOfferLogoIndexer = new MicrosoftOfferLogoIndexer(Instance);
                 Instance.PortalBranding = new PortalBranding(Instance);
@@ -126,7 +137,6 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic
                 Instance.TelemetryService = new TelemetryService(Instance);
                 Instance.CustomerRegistrationRepository = new CustomerRegistrationRepository(ApplicationDomain.Instance);
 
-                await Instance.PortalLocalization.InitializeAsync();
                 await Instance.TelemetryService.InitializeAsync();
             }
         }

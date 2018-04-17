@@ -1,15 +1,15 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="Result.cs" company="Microsoft">
+// <copyright file="PaymentResponseResult.cs" company="Microsoft">
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.PaymentGateways
+namespace PayUMoney.Api
 {
     /// <summary>
     /// result class
     /// </summary>
-    public class Result
+    public class PaymentResponseResult
     {
         /// <summary>
         /// Gets or sets merchant transaction id
@@ -19,6 +19,6 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// <summary>
         /// Gets or sets post back 
         /// </summary>
-        public PostBackParam PostBackParam { get; set; }
+        public PostBackParameter PostBackParam { get; set; }
     }
 }

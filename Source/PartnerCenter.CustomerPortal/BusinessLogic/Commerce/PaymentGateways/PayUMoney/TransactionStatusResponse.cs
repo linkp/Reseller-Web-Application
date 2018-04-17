@@ -1,34 +1,41 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="TxnResult.cs" company="Microsoft">
+// <copyright file="TransactionStatusResponse.cs" company="Microsoft">
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.PaymentGateways
+namespace PayUMoney.Api
 {
+    using System.Collections.Generic;
+
     /// <summary>
-    /// Transaction result class
+    /// Transaction status response class
     /// </summary>
-    public class TxnResult
+    public class TransactionStatusResponse
     {
         /// <summary>
         /// Gets or sets
         /// </summary>
-        public string MerchantTransactionId { get; set; }
+        public int Status { get; set; }
 
         /// <summary>
         /// Gets or sets
         /// </summary>
-        public int PaymentId { get; set; }
+        public string Message { get; set; }
 
         /// <summary>
         /// Gets or sets
         /// </summary>
-        public string Status { get; set; }
+        public List<TransactionResult> Result { get; set; }
 
         /// <summary>
         /// Gets or sets
         /// </summary>
-        public double Amount { get; set; }
+        public object ErrorCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets
+        /// </summary>
+        public object ResponseCode { get; set; }
     }
 }

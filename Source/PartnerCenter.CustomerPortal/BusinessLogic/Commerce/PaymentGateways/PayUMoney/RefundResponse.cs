@@ -1,22 +1,25 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="PayUTxnStatusResponse.cs" company="Microsoft">
+// <copyright file="RefundResponse.cs" company="Microsoft">
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.PaymentGateways
+namespace PayUMoney.Api
 {
-    using System.Collections.Generic;
-
     /// <summary>
-    /// Transaction status response class
+    /// Refund response class
     /// </summary>
-    public class PayUTxnStatusResponse
+    public class RefundResponse
     {
         /// <summary>
         /// Gets or sets
         /// </summary>
-        public int Status { get; set; }
+        public string ErrorCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets
+        /// </summary>
+        public string Guid { get; set; }
 
         /// <summary>
         /// Gets or sets
@@ -26,16 +29,21 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// <summary>
         /// Gets or sets
         /// </summary>
-        public List<TxnResult> Result { get; set; }
+        public string Result { get; set; }
 
         /// <summary>
         /// Gets or sets
         /// </summary>
-        public object ErrorCode { get; set; }
+        public string Rows { get; set; }
 
         /// <summary>
         /// Gets or sets
         /// </summary>
-        public object ResponseCode { get; set; }
+        public string SessionId { get; set; }
+
+        /// <summary>
+        /// Gets or sets
+        /// </summary>
+        public int Status { get; set; }
     }
 }

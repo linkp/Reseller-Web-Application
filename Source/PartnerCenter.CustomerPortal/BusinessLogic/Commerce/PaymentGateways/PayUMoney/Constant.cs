@@ -1,15 +1,15 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="PayUConstant.cs" company="Microsoft">
+// <copyright file="Constant.cs" company="Microsoft">
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.PaymentGateways
+namespace PayUMoney.Api
 {
     /// <summary>
-    /// PayUConstant class
+    /// Constant class
     /// </summary>
-    public static class PayUConstant
+    public static class Constant
     {
         /// <summary>
         /// PaymentResponseUrl url.
@@ -30,5 +30,25 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// MoneyWithPayU url.
         /// </summary>
         public const string MoneyWithPayU = "Money with Payumoney";
+
+        /// <summary>
+        /// Test url.
+        /// </summary>
+        public static readonly string TESTPAYUURL = "https://test.payu.in/_payment";
+
+        /// <summary>
+        /// Live url.
+        /// </summary>
+        public static readonly string LIVEPAYUURL = "https://secure.payu.in/_payment";
+
+        /// <summary>
+        /// Hash sequence.
+        /// </summary>
+        public static readonly string HASHSEQUENCE = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10";
+
+        /// <summary>
+        /// Maintains the payment id for the payment gateway.
+        /// </summary>
+        public static readonly string PAYUPAISASERVICEPROVIDER = "payu_paisa";
     }
 }

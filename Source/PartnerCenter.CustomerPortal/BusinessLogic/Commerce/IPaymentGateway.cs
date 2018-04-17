@@ -53,13 +53,6 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce
         Task<OrderViewModel> GetOrderDetailsFromPaymentAsync(string payerId, string paymentId, string orderId, string customerId);
 
         /// <summary>
-        /// Retrieves the order details maintained for the payment gateway.  
-        /// </summary>
-        /// <param name="paymentData">The payment data.</param>
-        /// <returns>The order associated with this payment transaction.</returns>
-        Task<OrderViewModel> GetOrderDetailsFromPaymentAsync(System.Web.Mvc.FormCollection paymentData);
-
-        /// <summary>
         /// validate payment configuration.
         /// </summary>
         /// <param name="paymentConfiguration">The paymentConfiguration contains all the payment configuration data.</param>

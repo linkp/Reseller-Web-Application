@@ -1,18 +1,17 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="PayUMoneyPaymentResponse.cs" company="Microsoft">
+// <copyright file="PaymentResponse.cs" company="Microsoft">
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.PaymentGateways
+namespace PayUMoney.Api
 {
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// PayUMoneyPaymentResponse class
     /// </summary>
-    public class PayUMoneyPaymentResponse
+    public class PaymentResponse
     {
         /// <summary>
         /// Gets or sets error code
@@ -32,7 +31,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// <summary>
         /// Gets or sets result
         /// </summary>
-        public List<Result> Result { get; set; }
+        public List<PaymentResponseResult> Result { get; set; }
 
         /// <summary>
         /// Gets or sets status

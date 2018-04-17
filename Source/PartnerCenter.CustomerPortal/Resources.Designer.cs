@@ -2671,11 +2671,47 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provide your PayUMoney Merchant account settings.
+        /// </summary>
+        public static string PayUPaymentConfigurationHeader {
+            get {
+                return ResourceManager.GetString("PayUPaymentConfigurationHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to to create a new merchant account if you do not have one..
+        /// </summary>
+        public static string PayUPaymentConfigurationSubTextPostfix {
+            get {
+                return ResourceManager.GetString("PayUPaymentConfigurationSubTextPostfix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To receive payments from your customers, you should use a PayUMoney Merchant account, please visit:.
+        /// </summary>
+        public static string PayUPaymentConfigurationSubTextPrefix {
+            get {
+                return ResourceManager.GetString("PayUPaymentConfigurationSubTextPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PayU Merchant Salt:.
         /// </summary>
         public static string PayUSaltCaption {
             get {
                 return ResourceManager.GetString("PayUSaltCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to payumoney.com.
+        /// </summary>
+        public static string PayUWebsiteCaption {
+            get {
+                return ResourceManager.GetString("PayUWebsiteCaption", resourceCulture);
             }
         }
         
