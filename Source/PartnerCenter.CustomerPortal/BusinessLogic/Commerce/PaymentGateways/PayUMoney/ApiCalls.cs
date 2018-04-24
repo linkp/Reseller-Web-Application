@@ -4,12 +4,10 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace PayUMoney.Api
+namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.PaymentGateways.PayUMoney
 {
-    using System;
     using System.Collections.Specialized;
     using System.Net.Http;
-    using System.Net.Http.Headers;
     using System.Threading.Tasks;
     using Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic;
     using Microsoft.Store.PartnerCenter.CustomerPortal.Models;
@@ -19,6 +17,11 @@ namespace PayUMoney.Api
     /// </summary>
     public class ApiCalls
     {
+        /// <summary>
+        /// Http client object to call web API
+        /// </summary>
+        private static HttpClient client = new HttpClient();
+
         /// <summary>
         /// Get payment response. 
         /// </summary>
@@ -63,7 +66,7 @@ namespace PayUMoney.Api
         }
 
         /// <summary>
-        /// Throws PartnerDomainException by parsing PayPal exception. 
+        /// Get Payment configuration. 
         /// </summary>
         /// <returns>return payment configuration</returns>
         private static async Task<PaymentConfiguration> GetPaymentConfigAsync()
@@ -82,13 +85,11 @@ namespace PayUMoney.Api
         /// <returns>Returns response</returns>
         private static async Task<T> PostAsync<T>(NameValueCollection header, string path)
         {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri(path);
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", header.Get("Authorization"));
+            HttpRequestMessage message = new HttpRequestMessage(HttpMethod.Post, path);
+            message.Headers.Add("Accept", "application/json");
+            message.Headers.TryAddWithoutValidation("Authorization", header.Get("Authorization"));
             T data = default(T);
-            HttpResponseMessage response = await client.PostAsync(path, null);
+            HttpResponseMessage response = await client.SendAsync(message);
             if (response.IsSuccessStatusCode)
             {
                 data = await response.Content.ReadAsAsync<T>();

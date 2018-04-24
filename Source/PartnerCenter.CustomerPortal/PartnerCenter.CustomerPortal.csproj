@@ -269,7 +269,7 @@
     <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayUMoney\PaymentResponse.cs" />
     <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayUMoney\RefundResponse.cs" />
     <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayUMoney\TransactionStatusResponse.cs" />
-    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayUMoney\PostBackParameter.cs" />
+    <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayUMoney\PostBackParameters.cs" />
     <Compile Include="BusinessLogic\Commerce\PaymentGateways\PreApprovalGateway.cs" />
     <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayUMoney\PaymentResponseResult.cs" />
     <Compile Include="BusinessLogic\Commerce\PaymentGateways\PayUMoney\TransactionResult.cs" />

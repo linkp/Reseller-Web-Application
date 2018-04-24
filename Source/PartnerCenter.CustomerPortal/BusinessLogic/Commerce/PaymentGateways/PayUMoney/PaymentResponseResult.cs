@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace PayUMoney.Api
+namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.PaymentGateways.PayUMoney
 {
     /// <summary>
     /// result class
@@ -19,6 +19,6 @@ namespace PayUMoney.Api
         /// <summary>
         /// Gets or sets post back 
         /// </summary>
-        public PostBackParameter PostBackParam { get; set; }
+        public PostBackParameters PostBackParam { get; set; }
     }
 }

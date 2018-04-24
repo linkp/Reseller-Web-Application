@@ -517,7 +517,7 @@
     <value>Ophalen van betalingsgegevens</value>
   </data>
   <data name="LiveAccountTypeCaption" xml:space="preserve">
-    <value>Live PayPal-account</value>
+    <value>Live account</value>
   </data>
   <data name="PaymentConfigurationHeader" xml:space="preserve">
     <value>Bieden uw PayPal Pro Accountinstellingen</value>
@@ -547,7 +547,7 @@
     <value>Voer uw PayPal klant geheim</value>
   </data>
   <data name="SandboxAccountTypeCaption" xml:space="preserve">
-    <value>Sandbox-PayPalrekening</value>
+    <value>Sandbox-rekening</value>
   </data>
   <data name="UndoUnsavedChanges" xml:space="preserve">
     <value>Betaling van de niet-opgeslagen wijzigingen ongedaan maken</value>

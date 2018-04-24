@@ -4,30 +4,30 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace PayUMoney.Api
+namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.PaymentGateways.PayUMoney
 {
     /// <summary>
-    /// Transaction result class
+    /// Transaction result class.
     /// </summary>
     public class TransactionResult
     {
         /// <summary>
-        /// Gets or sets
+        /// Gets or sets merchant transaction ID.
         /// </summary>
         public string MerchantTransactionId { get; set; }
 
         /// <summary>
-        /// Gets or sets
+        /// Gets or sets payment ID.
         /// </summary>
         public int PaymentId { get; set; }
 
         /// <summary>
-        /// Gets or sets
+        /// Gets or sets status.
         /// </summary>
         public string Status { get; set; }
 
         /// <summary>
-        /// Gets or sets
+        /// Gets or sets amount.
         /// </summary>
         public double Amount { get; set; }
     }

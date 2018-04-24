@@ -13,8 +13,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
     using System.Threading.Tasks;
     using Exceptions;
     using Models;
-    using PartnerCenter.Models.Customers;
-    using PayUMoney.Api;
+    using PayUMoney;
 
     /// <summary>
     /// PayUMoney payment gateway implementation.
@@ -101,7 +100,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
                     return paymentResponse.Result[0].Amount.ToString();
                 }
             }
-            catch (PartnerDomainException ex)
+            catch (Exception ex)
             {
                 this.ParsePayUException(ex);
             }
@@ -138,7 +137,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
                     throw new Exception("Error in refund");
                 }
             }
-            catch (PartnerDomainException ex)
+            catch (Exception ex)
             {
                 this.ParsePayUException(ex);
             }
@@ -169,7 +168,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// </summary>
         /// <param name="text">hash string.</param>
         /// <returns>return string</returns>
-        public string Generatehash512(string text)
+        private string GenerateHash512(string text)
         {
             byte[] message = Encoding.UTF8.GetBytes(text);
 
@@ -190,10 +189,10 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// Generate transaction id. 
         /// </summary>
         /// <returns>return string</returns>
-        public string Generatetxnid()
+        private string GenerateTransactionId()
         {
             Random rnd = new Random();
-            string strHash = this.Generatehash512(rnd.ToString() + DateTime.Now);
+            string strHash = this.GenerateHash512(rnd.ToString() + DateTime.Now);
             string txnid1 = strHash.ToString().Substring(0, 20);
             return txnid1;
         }
@@ -205,16 +204,15 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         private async Task<OrderViewModel> GetOrderDetails()
         {
             OrderViewModel orderFromPayment = null;
-            PaymentResponse paymentResponse = await ApiCalls.GetPaymentDetails(this.paymentId);
-
             try
             {
+                PaymentResponse paymentResponse = await ApiCalls.GetPaymentDetails(this.paymentId);
                 if (paymentResponse != null && paymentResponse.Result.Count > 0)
                 {
                     orderFromPayment = await this.GetOrderDetails(paymentResponse.Result[0].PostBackParam.Udf1, paymentResponse.Result[0].PostBackParam.ProductInformation, paymentResponse.Result[0].PostBackParam.Udf2);
                 }
             }
-            catch (PartnerDomainException ex)
+            catch (Exception ex)
             {
                 this.ParsePayUException(ex);
             }
@@ -239,7 +237,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         }
 
         /// <summary>
-        /// prepare remote post. 
+        /// prepares Remote post by populate all the necessary fields to generate PayUMoney post request. 
         /// </summary>
         /// <param name="order">order details.</param>                
         /// <param name="returnUrl">return url.</param>        
@@ -251,19 +249,9 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
             string email = string.Empty;
             CustomerRegistrationRepository customerRegistrationRepository = new CustomerRegistrationRepository(ApplicationDomain.Instance);
             CustomerViewModel customerRegistrationInfo = await customerRegistrationRepository.RetrieveAsync(order.CustomerId);
-            if (customerRegistrationInfo == null)
-            {
-                Customer customer = await ApplicationDomain.Instance.PartnerCenterClient.Customers.ById(order.CustomerId).GetAsync();
-                fname = customer.BillingProfile.DefaultAddress.FirstName;
-                phone = customer.BillingProfile.DefaultAddress.PhoneNumber;
-                email = customer.BillingProfile.Email;
-            }
-            else
-            {
-                fname = customerRegistrationInfo.FirstName;
-                phone = customerRegistrationInfo.Phone;
-                email = customerRegistrationInfo.Email;
-            }
+            fname = customerRegistrationInfo.FirstName;
+            phone = customerRegistrationInfo.Phone;
+            email = customerRegistrationInfo.Email;
 
             decimal paymentTotal = 0;
             StringBuilder productSubs = new StringBuilder();
@@ -280,7 +268,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
             System.Collections.Specialized.NameValueCollection inputs = new System.Collections.Specialized.NameValueCollection();
             PaymentConfiguration payconfig = await this.GetAPaymentConfigAsync();
             inputs.Add("key", payconfig.ClientId);
-            inputs.Add("txnid", this.Generatetxnid());
+            inputs.Add("txnid", this.GenerateTransactionId());
             inputs.Add("amount", paymentTotal.ToString());
             inputs.Add("productinfo", productSubs.ToString());
             inputs.Add("firstname", fname);
@@ -292,7 +280,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
             inputs.Add("furl", returnUrl + "&payment=failure&PayerId=" + inputs.Get("txnid"));
             inputs.Add("service_provider", Constant.PAYUPAISASERVICEPROVIDER);
             string hashString = inputs.Get("key") + "|" + inputs.Get("txnid") + "|" + inputs.Get("amount") + "|" + inputs.Get("productInfo") + "|" + inputs.Get("firstName") + "|" + inputs.Get("email") + "|" + inputs.Get("udf1") + "|" + inputs.Get("udf2") + "|||||||||" + payconfig.ClientSecret; // payconfig.ClientSecret;
-            string hash = this.Generatehash512(hashString);
+            string hash = this.GenerateHash512(hashString);
             inputs.Add("hash", hash);
 
             RemotePost myremotepost = new RemotePost();
@@ -305,7 +293,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// Throws PartnerDomainException by parsing PayUMoney exception. 
         /// </summary>
         /// <param name="ex">Exceptions from PayUMoney API call.</param>        
-        private void ParsePayUException(PartnerDomainException ex)
+        private void ParsePayUException(Exception ex)
         {
             throw new PartnerDomainException(ErrorCode.PaymentGatewayFailure).AddDetail("ErrorMessage", ex.Message);
         }
@@ -341,7 +329,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
 
                 orderFromPayment.Subscriptions = orderSubscriptions;
             }
-            catch (PartnerDomainException ex)
+            catch (Exception ex)
             {
                 this.ParsePayUException(ex);
             }
@@ -364,7 +352,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// <summary>
         /// Remote post class.
         /// </summary>
-        public class RemotePost
+        private class RemotePost
         {
             /// <summary>
             /// Maintains Url. 

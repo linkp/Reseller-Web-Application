@@ -547,7 +547,7 @@
     <value>あなたの PayPal のクライアント シークレットを入力します。</value>
   </data>
   <data name="SandboxAccountTypeCaption" xml:space="preserve">
-    <value>サンド ボックスの Paypal アカウント</value>
+    <value>サンド ボックスの アカウント</value>
   </data>
   <data name="UndoUnsavedChanges" xml:space="preserve">
     <value>保存されていないお支払いの変更を元に戻す</value>

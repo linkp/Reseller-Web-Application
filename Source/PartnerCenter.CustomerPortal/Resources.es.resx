@@ -517,7 +517,7 @@
     <value>Recuperar información de pago</value>
   </data>
   <data name="LiveAccountTypeCaption" xml:space="preserve">
-    <value>Cuenta PayPal</value>
+    <value>Cuenta</value>
   </data>
   <data name="PaymentConfigurationHeader" xml:space="preserve">
     <value>Proporcionar su PayPal Pro configuración de la cuenta</value>
@@ -547,7 +547,7 @@
     <value>Entrar en su secreto de cliente de PayPal</value>
   </data>
   <data name="SandboxAccountTypeCaption" xml:space="preserve">
-    <value>Cuenta de PayPal sandbox</value>
+    <value>Cuenta de sandbox</value>
   </data>
   <data name="UndoUnsavedChanges" xml:space="preserve">
     <value>Deshacer los cambios no guardados pago</value>

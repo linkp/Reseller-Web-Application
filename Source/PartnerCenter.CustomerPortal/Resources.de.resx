@@ -514,7 +514,7 @@
     <value>Abrufen von Zahlungsinformationen</value>
   </data>
   <data name="LiveAccountTypeCaption" xml:space="preserve">
-    <value>PayPal-live-Konto</value>
+    <value>live-Konto</value>
   </data>
   <data name="PaymentConfigurationHeader" xml:space="preserve">
     <value>Geben Sie hier Ihre PayPal Kontoeinstellungen an</value>
@@ -541,7 +541,7 @@
     <value>Geben Sie hier das Paypal Secret an, das Sie sich anzeigen lassen können.</value>
   </data>
   <data name="SandboxAccountTypeCaption" xml:space="preserve">
-    <value>PayPal-Sandbox-Konto</value>
+    <value>Sandbox-Konto</value>
   </data>
   <data name="UndoUnsavedChanges" xml:space="preserve">
     <value>Zahlung nicht gespeicherte Änderungen rückgängig machen</value>

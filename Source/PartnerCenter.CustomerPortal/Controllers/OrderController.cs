@@ -263,7 +263,6 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
             };
 
             IPaymentGateway paymentGateway = PaymentGatewayConfig.GetPaymentGatewayInstance(ApplicationDomain.Instance, "ProcessingOrder");
-            ////  await paymentGateway.IsPaymentDataValid(paymentData);
             OrderViewModel orderToProcess = await paymentGateway.GetOrderDetailsFromPaymentAsync(payerId, paymentId, string.Empty, string.Empty);
 
             // Assign the actual customer Id

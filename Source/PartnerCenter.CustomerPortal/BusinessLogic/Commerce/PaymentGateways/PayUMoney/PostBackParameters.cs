@@ -1,17 +1,17 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="PostBackParameter.cs" company="Microsoft">
+// <copyright file="PostBackParameters.cs" company="Microsoft">
 //      Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-namespace PayUMoney.Api
+namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.PaymentGateways.PayUMoney
 {
     using System.Runtime.Serialization;
 
     /// <summary>
-    /// PostBack Parameter class
+    /// PostBack Parameters class
     /// </summary>
     [DataContract]
-    public class PostBackParameter
+    public class PostBackParameters
     {
         /// <summary>
         /// Gets or sets added on
