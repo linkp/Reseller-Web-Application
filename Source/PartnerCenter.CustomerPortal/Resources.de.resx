@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -514,7 +514,7 @@
     <value>Abrufen von Zahlungsinformationen</value>
   </data>
   <data name="LiveAccountTypeCaption" xml:space="preserve">
-    <value>PayPal-live-Konto</value>
+    <value>live-Konto</value>
   </data>
   <data name="PaymentConfigurationHeader" xml:space="preserve">
     <value>Geben Sie hier Ihre PayPal Kontoeinstellungen an</value>
@@ -541,7 +541,7 @@
     <value>Geben Sie hier das Paypal Secret an, das Sie sich anzeigen lassen können.</value>
   </data>
   <data name="SandboxAccountTypeCaption" xml:space="preserve">
-    <value>PayPal-Sandbox-Konto</value>
+    <value>Sandbox-Konto</value>
   </data>
   <data name="UndoUnsavedChanges" xml:space="preserve">
     <value>Zahlung nicht gespeicherte Änderungen rückgängig machen</value>
@@ -1226,5 +1226,44 @@
   </data>
   <data name="OrderProcessingFailureNotification" xml:space="preserve">
     <value>Fehler beim Verarbeitungsreihenfolge. Bitte klicken Sie auf fertig, und versuchen Sie es erneut.</value>
+  </data>
+  <data name="CountryNameIN" xml:space="preserve">
+    <value>Indien</value>
+  </data>
+  <data name="PayUAccountTypeCaption" xml:space="preserve">
+    <value>Konto Typ</value>
+  </data>
+  <data name="PayUAccountTypeSubText" xml:space="preserve">
+    <value>Sie können zum Testen Ihrer Transaktionen ein Sandbox-Konto verwenden. Anschlie¬ßend können Sie auf ein Live-Konto umstellen.</value>
+  </data>
+  <data name="PayUMerchantKeyCaption" xml:space="preserve">
+    <value>Händlerschlüssel</value>
+  </data>
+  <data name="PayUMerchantSaltSubText" xml:space="preserve">
+    <value>Geben Sie Ihre merchant ID ein</value>
+  </data>
+  <data name="PayUSaltCaption" xml:space="preserve">
+    <value>Merchant Salt</value>
+  </data>
+  <data name="PayUMerchantKeySubText" xml:space="preserve">
+    <value>Geben Sie Ihre merchant ID ein</value>
+  </data>
+  <data name="PayUAuthorizationCaption" xml:space="preserve">
+    <value>Genehmigung</value>
+  </data>
+  <data name="PayUAuthSubText" xml:space="preserve">
+    <value>Geben Sie Ihr</value>
+  </data>
+  <data name="PayUPaymentConfigurationHeader" xml:space="preserve">
+    <value>Kontoeinstellungen bearbeiten</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPostfix" xml:space="preserve">
+    <value>Ich möchte ein neues Konto erstellen</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPrefix" xml:space="preserve">
+    <value>Um Zahlungen von Ihren Kunden erhalten, sollten Sie ein PayUMoney Händler-Konto verwenden, besuchen Sie bitte:!</value>
+  </data>
+  <data name="PayUWebsiteCaption" xml:space="preserve">
+    <value>payumoney.com</value>
   </data>
 </root>

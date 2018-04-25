@@ -9,6 +9,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using BusinessLogic;
+    using BusinessLogic.Commerce.PaymentGateways;
     using Configuration;
     using Configuration.Manager;
     using Filters;
@@ -220,7 +221,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
         [OutputCache(NoStore = true, Duration = 0)]
         public ActionResult PaymentSetup()
         {
-            return this.PartialView();
+            return this.PartialView(PaymentGatewayConfig.GetPaymentConfigView());
         }
 
         /// <summary>

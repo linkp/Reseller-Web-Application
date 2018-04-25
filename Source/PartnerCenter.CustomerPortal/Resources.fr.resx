@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -517,7 +517,7 @@
     <value>Récupération des informations de paiement</value>
   </data>
   <data name="LiveAccountTypeCaption" xml:space="preserve">
-    <value>Paypal compte live</value>
+    <value>compte live</value>
   </data>
   <data name="PaymentConfigurationHeader" xml:space="preserve">
     <value>Fournir votre PayPal Pro paramètres du compte</value>
@@ -547,7 +547,7 @@
     <value>Entrez votre secret de client de PayPal</value>
   </data>
   <data name="SandboxAccountTypeCaption" xml:space="preserve">
-    <value>Compte de sandbox de PayPal</value>
+    <value>Compte de sandbox</value>
   </data>
   <data name="UndoUnsavedChanges" xml:space="preserve">
     <value>Annuler les modifications non enregistrées de paiement</value>
@@ -1226,5 +1226,44 @@
   </data>
   <data name="OrderProcessingFailureNotification" xml:space="preserve">
     <value>Échec dans l’ordre de traitement. S’il vous plaît cliquez sur terminé, puis réessayez.</value>
+  </data>
+  <data name="CountryNameIN" xml:space="preserve">
+    <value>Inde</value>
+  </data>
+  <data name="PayUAccountTypeCaption" xml:space="preserve">
+    <value>Type de compte</value>
+  </data>
+  <data name="PayUAccountTypeSubText" xml:space="preserve">
+    <value>Vous pouvez sélectionner un type de compte de test pour tester vos transactions. Une fois que le travail, vous pouvez basculer vers un type de compte live pour commencer à exercer des</value>
+  </data>
+  <data name="PayUMerchantKeyCaption" xml:space="preserve">
+    <value>Clé Marchand</value>
+  </data>
+  <data name="PayUMerchantSaltSubText" xml:space="preserve">
+    <value>Veuillez entrer votre ID de marchand</value>
+  </data>
+  <data name="PayUSaltCaption" xml:space="preserve">
+    <value>Marchand</value>
+  </data>
+  <data name="PayUMerchantKeySubText" xml:space="preserve">
+    <value>Entrez votre clé de marchand Marie eugenie !</value>
+  </data>
+  <data name="PayUAuthorizationCaption" xml:space="preserve">
+    <value>autorisation</value>
+  </data>
+  <data name="PayUAuthSubText" xml:space="preserve">
+    <value>Entrez votre</value>
+  </data>
+  <data name="PayUPaymentConfigurationHeader" xml:space="preserve">
+    <value>Les paramètres de votre compte</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPostfix" xml:space="preserve">
+    <value>pour créer un nouveau compte marchand si vous n’en avez pas. !</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPrefix" xml:space="preserve">
+    <value>Pour recevoir des paiements de vos clients, vous devez utiliser un compte marchand PayUMoney, s'il vous plaît visitez:</value>
+  </data>
+  <data name="PayUWebsiteCaption" xml:space="preserve">
+    <value>payumoney.com</value>
   </data>
 </root>

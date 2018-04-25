@@ -118,7 +118,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
 
             // use payment gateway to extract order information.             
             OrderViewModel orderToProcess = await paymentGateway.GetOrderDetailsFromPaymentAsync(payerId, paymentId, orderId, clientCustomerId);
-
+            orderToProcess.CustomerId = clientCustomerId;
             CommerceOperations commerceOperation = new CommerceOperations(ApplicationDomain.Instance, clientCustomerId, paymentGateway);
 
             TransactionResult transactionResult = null;
@@ -175,7 +175,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
             string redirectUrl = string.Format(CultureInfo.InvariantCulture, "{0}/#ProcessOrder?ret=true&customerId={1}", Request.RequestUri.GetLeftPart(UriPartial.Authority), orderDetails.CustomerId);
 
             // execute to paypal and get paypal action URI. 
-            PayPalGateway paymentGateway = new PayPalGateway(ApplicationDomain.Instance, Resources.NewPurchaseOperationCaption);
+            IPaymentGateway paymentGateway = PaymentGatewayConfig.GetPaymentGatewayInstance(ApplicationDomain.Instance, Resources.NewPurchaseOperationCaption);
             string generatedUri = await paymentGateway.GeneratePaymentUriAsync(redirectUrl, orderDetails);
 
             // Track the event measurements for analysis.
@@ -261,10 +261,8 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
                 Password = newCustomer.UserCredentials.Password,
                 AdminUserAccount = newCustomer.UserCredentials.UserName + "@" + newCustomer.CompanyProfile.Domain
             };
-            
-            PayPalGateway paymentGateway = new PayPalGateway(ApplicationDomain.Instance, "ProcessingOrder");            
 
-            // use payment gateway to extract order information. 
+            IPaymentGateway paymentGateway = PaymentGatewayConfig.GetPaymentGatewayInstance(ApplicationDomain.Instance, "ProcessingOrder");
             OrderViewModel orderToProcess = await paymentGateway.GetOrderDetailsFromPaymentAsync(payerId, paymentId, string.Empty, string.Empty);
 
             // Assign the actual customer Id
@@ -278,7 +276,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
             var deleteResult = ApplicationDomain.Instance.CustomerRegistrationRepository.DeleteAsync(customerId);
 
             // Capture the request for the customer summary for analysis.
-            var eventProperties = new Dictionary<string, string> { { "CustomerId", orderToProcess.CustomerId }, { "PayerId", payerId }, { "PaymentId", paymentId } };
+            var eventProperties = new Dictionary<string, string> { { "CustomerId", orderToProcess.CustomerId } };
 
             // Track the event measurements for analysis.
             var eventMetrics = new Dictionary<string, double> { { "ElapsedMilliseconds", DateTime.Now.Subtract(startTime).TotalMilliseconds } };
@@ -471,7 +469,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
             }
             else
             {
-                return new PayPalGateway(ApplicationDomain.Instance, operationDescription);
+                return PaymentGatewayConfig.GetPaymentGatewayInstance(ApplicationDomain.Instance, operationDescription);
             }
         }
     }

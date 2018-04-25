@@ -55,7 +55,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// Validates payment configuration. 
         /// </summary>
         /// <param name="paymentConfig">The Payment configuration.</param>
-        public static void ValidateConfiguration(PaymentConfiguration paymentConfig)
+        public void ValidateConfiguration(PaymentConfiguration paymentConfig)
         {
             string[] supportedPaymentModes = { "sandbox", "live" };
 
@@ -106,7 +106,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
         /// <param name="brandConfig">The branding configuration.</param>
         /// <param name="countryIso2Code">The locale code used by the web experience profile. Example-US.</param>
         /// <returns>The created web experience profile id.</returns>
-        public static string CreateWebExperienceProfile(PaymentConfiguration paymentConfig, BrandingConfiguration brandConfig, string countryIso2Code)
+        public string CreateWebExperienceProfile(PaymentConfiguration paymentConfig, BrandingConfiguration brandConfig, string countryIso2Code)
         {
             try
             {

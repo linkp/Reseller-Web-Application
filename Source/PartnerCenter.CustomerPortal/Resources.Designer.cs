@@ -790,6 +790,15 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to India.
+        /// </summary>
+        public static string CountryNameIN {
+            get {
+                return ResourceManager.GetString("CountryNameIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Iceland.
         /// </summary>
         public static string CountryNameIS {
@@ -1951,7 +1960,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Paypal live account.
+        ///   Looks up a localized string similar to Live account.
         /// </summary>
         public static string LiveAccountTypeCaption {
             get {
@@ -2599,6 +2608,114 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PayU account type:.
+        /// </summary>
+        public static string PayUAccountTypeCaption {
+            get {
+                return ResourceManager.GetString("PayUAccountTypeCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can select a test account type to test your transactions. Once working, you can switch to a live account type to start transacting.
+        /// </summary>
+        public static string PayUAccountTypeSubText {
+            get {
+                return ResourceManager.GetString("PayUAccountTypeSubText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PayU Authorization.
+        /// </summary>
+        public static string PayUAuthorizationCaption {
+            get {
+                return ResourceManager.GetString("PayUAuthorizationCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your PayU Authorization.
+        /// </summary>
+        public static string PayUAuthSubText {
+            get {
+                return ResourceManager.GetString("PayUAuthSubText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PayU Merchant Key:.
+        /// </summary>
+        public static string PayUMerchantKeyCaption {
+            get {
+                return ResourceManager.GetString("PayUMerchantKeyCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your PayU Merchant Key.
+        /// </summary>
+        public static string PayUMerchantKeySubText {
+            get {
+                return ResourceManager.GetString("PayUMerchantKeySubText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your PayU Merchant Salt.
+        /// </summary>
+        public static string PayUMerchantSaltSubText {
+            get {
+                return ResourceManager.GetString("PayUMerchantSaltSubText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide your PayUMoney Merchant account settings.
+        /// </summary>
+        public static string PayUPaymentConfigurationHeader {
+            get {
+                return ResourceManager.GetString("PayUPaymentConfigurationHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to to create a new merchant account if you do not have one..
+        /// </summary>
+        public static string PayUPaymentConfigurationSubTextPostfix {
+            get {
+                return ResourceManager.GetString("PayUPaymentConfigurationSubTextPostfix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To receive payments from your customers, you should use a PayUMoney Merchant account, please visit:.
+        /// </summary>
+        public static string PayUPaymentConfigurationSubTextPrefix {
+            get {
+                return ResourceManager.GetString("PayUPaymentConfigurationSubTextPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PayU Merchant Salt:.
+        /// </summary>
+        public static string PayUSaltCaption {
+            get {
+                return ResourceManager.GetString("PayUSaltCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to payumoney.com.
+        /// </summary>
+        public static string PayUWebsiteCaption {
+            get {
+                return ResourceManager.GetString("PayUWebsiteCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone number.
         /// </summary>
         public static string PhoneHeaderCaption {
@@ -2878,7 +2995,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Paypal sandbox account.
+        ///   Looks up a localized string similar to Sandbox account.
         /// </summary>
         public static string SandboxAccountTypeCaption {
             get {

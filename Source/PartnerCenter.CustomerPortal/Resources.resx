@@ -538,7 +538,7 @@
     <value>Retrieving payment information</value>
   </data>
   <data name="LiveAccountTypeCaption" xml:space="preserve">
-    <value>Paypal live account</value>
+    <value>Live account</value>
   </data>
   <data name="PaymentConfigurationHeader" xml:space="preserve">
     <value>Provide your PayPal Pro account settings</value>
@@ -568,7 +568,7 @@
     <value>Enter your PayPal client secret</value>
   </data>
   <data name="SandboxAccountTypeCaption" xml:space="preserve">
-    <value>Paypal sandbox account</value>
+    <value>Sandbox account</value>
   </data>
   <data name="UndoUnsavedChanges" xml:space="preserve">
     <value>Undo unsaved payment changes</value>
@@ -1192,7 +1192,7 @@
     <value>Manage customers for pre-approved transactions.</value>
   </data>
   <data name="CustomerManagementSubText" xml:space="preserve">
-      <value>“Select all” will mark all current and future customers as pre-approved to transact in the store front.</value>
+    <value>“Select all” will mark all current and future customers as pre-approved to transact in the store front.</value>
   </data>
   <data name="CustomerManagementAllCustomersToggleCaption" xml:space="preserve">
     <value>Select all</value>
@@ -1226,5 +1226,44 @@
   </data>
   <data name="SelectSearchbyNameDomainPlaceholder" xml:space="preserve">
     <value>Search by company name or domain</value>
+  </data>
+  <data name="CountryNameIN" xml:space="preserve">
+    <value>India</value>
+  </data>
+  <data name="PayUAccountTypeCaption" xml:space="preserve">
+    <value>PayU account type:</value>
+  </data>
+  <data name="PayUAccountTypeSubText" xml:space="preserve">
+    <value>You can select a test account type to test your transactions. Once working, you can switch to a live account type to start transacting</value>
+  </data>
+  <data name="PayUMerchantKeyCaption" xml:space="preserve">
+    <value>PayU Merchant Key:</value>
+  </data>
+  <data name="PayUMerchantSaltSubText" xml:space="preserve">
+    <value>Enter your PayU Merchant Salt</value>
+  </data>
+  <data name="PayUSaltCaption" xml:space="preserve">
+    <value>PayU Merchant Salt:</value>
+  </data>
+  <data name="PayUMerchantKeySubText" xml:space="preserve">
+    <value>Enter your PayU Merchant Key</value>
+  </data>
+  <data name="PayUAuthorizationCaption" xml:space="preserve">
+    <value>PayU Authorization</value>
+  </data>
+  <data name="PayUAuthSubText" xml:space="preserve">
+    <value>Enter your PayU Authorization</value>
+  </data>
+  <data name="PayUPaymentConfigurationHeader" xml:space="preserve">
+    <value>Provide your PayUMoney Merchant account settings</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPostfix" xml:space="preserve">
+    <value>to create a new merchant account if you do not have one.</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPrefix" xml:space="preserve">
+    <value>To receive payments from your customers, you should use a PayUMoney Merchant account, please visit:</value>
+  </data>
+  <data name="PayUWebsiteCaption" xml:space="preserve">
+    <value>payumoney.com</value>
   </data>
 </root>

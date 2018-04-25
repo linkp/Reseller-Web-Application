@@ -106,5 +106,27 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
             // clean up the order item. 
             await ApplicationDomain.Instance.CustomerOrdersRepository.DeleteAsync(this.orderId, this.customerId);
         }
+
+        /// <summary>
+        /// Validates payment configuration. 
+        /// </summary>
+        /// <param name="paymentConfig">The Payment configuration.</param>
+        public void ValidateConfiguration(PaymentConfiguration paymentConfig)
+        {
+            ////No need to implement this method
+        }
+
+        /// <summary>
+        /// Creates Web Experience profile using portal branding and payment configuration. 
+        /// </summary>
+        /// <param name="paymentConfig">The Payment configuration.</param>
+        /// <param name="brandConfig">The branding configuration.</param>
+        /// <param name="countryIso2Code">The locale code used by the web experience profile. Example-US.</param>
+        /// <returns>The created web experience profile id.</returns>
+        public string CreateWebExperienceProfile(PaymentConfiguration paymentConfig, BrandingConfiguration brandConfig, string countryIso2Code)
+        {
+            ////no need to implement this method
+            return string.Empty;
+        }
     }
 }

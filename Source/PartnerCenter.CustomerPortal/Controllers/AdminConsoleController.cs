@@ -14,6 +14,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
     using System.Web;
     using System.Web.Http;
     using BusinessLogic;
+    using BusinessLogic.Commerce;
     using BusinessLogic.Commerce.PaymentGateways;
     using BusinessLogic.Exceptions;
     using CustomerPortal;
@@ -153,7 +154,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
             {
                 // update the web experience profile. 
                 var paymentConfiguration = await ApplicationDomain.Instance.PaymentConfigurationRepository.RetrieveAsync();
-                paymentConfiguration.WebExperienceProfileId = PayPalGateway.CreateWebExperienceProfile(paymentConfiguration, updatedBrandingConfiguration, ApplicationDomain.Instance.PortalLocalization.CountryIso2Code);
+                paymentConfiguration.WebExperienceProfileId = PaymentGatewayConfig.GetPaymentGatewayInstance(ApplicationDomain.Instance, "retrieve payment").CreateWebExperienceProfile(paymentConfiguration, updatedBrandingConfiguration, ApplicationDomain.Instance.PortalLocalization.CountryIso2Code);
                 await ApplicationDomain.Instance.PaymentConfigurationRepository.UpdateAsync(paymentConfiguration);
             }
 
@@ -237,9 +238,10 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
         [Route("Payment")]
         [HttpPut]
         public async Task<PaymentConfiguration> UpdatePaymentConfiguration(PaymentConfiguration paymentConfiguration)
-        {           
-            // validate the payment configuration before saving. 
-            PayPalGateway.ValidateConfiguration(paymentConfiguration);
+        {
+            IPaymentGateway paymentGateway = PaymentGatewayConfig.GetPaymentGatewayInstance(ApplicationDomain.Instance, "configure payment");
+            //// validate the payment configuration before saving. 
+            paymentGateway.ValidateConfiguration(paymentConfiguration);
 
             // check if branding configuration has been setup else don't create web experience profile. 
             bool isBrandingConfigured = await ApplicationDomain.Instance.PortalBranding.IsConfiguredAsync();
@@ -247,7 +249,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Controllers
             {
                 // create a web experience profile using the branding for the web store. 
                 BrandingConfiguration brandConfig = await ApplicationDomain.Instance.PortalBranding.RetrieveAsync();
-                paymentConfiguration.WebExperienceProfileId = PayPalGateway.CreateWebExperienceProfile(paymentConfiguration, brandConfig, ApplicationDomain.Instance.PortalLocalization.CountryIso2Code);
+                paymentConfiguration.WebExperienceProfileId = paymentGateway.CreateWebExperienceProfile(paymentConfiguration, brandConfig, ApplicationDomain.Instance.PortalLocalization.CountryIso2Code);
             }
 
             // Save the validated & complete payment configuration to repository.

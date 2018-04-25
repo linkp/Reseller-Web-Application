@@ -12,6 +12,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Configuration
     using System.IO;
     using System.Web;
     using System.Web.Configuration;
+    using BusinessLogic.Commerce.PaymentGateways;
     using Manager;
 
     /// <summary>
@@ -84,7 +85,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.Configuration
             {
                 return Path.Combine(
                     HttpRuntime.AppDomainAppPath,
-                    WebConfigurationManager.AppSettings[ApplicationConfiguration.WebPortalConfigurationFilePathKey]);
+                    WebConfigurationManager.AppSettings[ApplicationConfiguration.WebPortalConfigurationFilePathKey] + PaymentGatewayConfig.GetWebConfigPath());
             } 
         }
 

@@ -34,6 +34,9 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal
             FilterConfig.RegisterGlobalMvcFilters(GlobalFilters.Filters);
             FilterConfig.RegisterWebApiFilters(GlobalConfiguration.Configuration.Filters);
 
+            // intialize our application domain PartnerCenterClient and PortalLocalization
+            ApplicationDomain.BootstrapAsync().Wait();
+
             // configure the web portal client application
             string portalConfigurationPath = ApplicationConfiguration.WebPortalConfigurationFilePath;
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -517,7 +517,7 @@
     <value>Ophalen van betalingsgegevens</value>
   </data>
   <data name="LiveAccountTypeCaption" xml:space="preserve">
-    <value>Live PayPal-account</value>
+    <value>Live account</value>
   </data>
   <data name="PaymentConfigurationHeader" xml:space="preserve">
     <value>Bieden uw PayPal Pro Accountinstellingen</value>
@@ -547,7 +547,7 @@
     <value>Voer uw PayPal klant geheim</value>
   </data>
   <data name="SandboxAccountTypeCaption" xml:space="preserve">
-    <value>Sandbox-PayPalrekening</value>
+    <value>Sandbox-rekening</value>
   </data>
   <data name="UndoUnsavedChanges" xml:space="preserve">
     <value>Betaling van de niet-opgeslagen wijzigingen ongedaan maken</value>
@@ -1226,5 +1226,44 @@
   </data>
   <data name="OrderProcessingFailureNotification" xml:space="preserve">
     <value>Storing in de verwerkingsvolgorde. Klik gedaan en probeer het opnieuw.</value>
+  </data>
+  <data name="CountryNameIN" xml:space="preserve">
+    <value>India</value>
+  </data>
+  <data name="PayUAccountTypeCaption" xml:space="preserve">
+    <value>Account type</value>
+  </data>
+  <data name="PayUAccountTypeSubText" xml:space="preserve">
+    <value>U kunt het accounttype van een test om te testen uw transacties. Zodra u werkt, kunt u overschakelen naar een live-accounttype te starten transacties te verrichten</value>
+  </data>
+  <data name="PayUMerchantKeyCaption" xml:space="preserve">
+    <value>Merchant sleutel</value>
+  </data>
+  <data name="PayUMerchantSaltSubText" xml:space="preserve">
+    <value>Vul uw iDEAL Merchant ID in</value>
+  </data>
+  <data name="PayUSaltCaption" xml:space="preserve">
+    <value>Merchant Salt</value>
+  </data>
+  <data name="PayUMerchantKeySubText" xml:space="preserve">
+    <value>Vul uw iDEAL Merchant key in.</value>
+  </data>
+  <data name="PayUAuthorizationCaption" xml:space="preserve">
+    <value>AUTHORISATIE</value>
+  </data>
+  <data name="PayUAuthSubText" xml:space="preserve">
+    <value>Vermeld uw</value>
+  </data>
+  <data name="PayUPaymentConfigurationHeader" xml:space="preserve">
+    <value>Account instellingen</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPostfix" xml:space="preserve">
+    <value>Klik hier om een Activa rekening aan te maken</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPrefix" xml:space="preserve">
+    <value>Voor het ontvangen van betalingen van uw klanten, moet u gebruik maken van een PayUMoney merchant account, u terecht op:</value>
+  </data>
+  <data name="PayUWebsiteCaption" xml:space="preserve">
+    <value>payumoney.com</value>
   </data>
 </root>
