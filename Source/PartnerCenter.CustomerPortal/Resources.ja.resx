@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -1226,5 +1226,44 @@
   </data>
   <data name="OrderProcessingFailureNotification" xml:space="preserve">
     <value>処理順序に失敗しました。[完了] をクリックして、もう一度やり直してください。</value>
+  </data>
+  <data name="CountryNameIN" xml:space="preserve">
+    <value>インド</value>
+  </data>
+  <data name="PayUAccountTypeCaption" xml:space="preserve">
+    <value>アカウントのタイプ</value>
+  </data>
+  <data name="PayUAccountTypeSubText" xml:space="preserve">
+    <value>あなたのトランザクションをテストするためのテスト アカウントの種類を選択できます。作業は、取引を開始するライブ アカウントの種類を切り替えることができます。</value>
+  </data>
+  <data name="PayUMerchantKeyCaption" xml:space="preserve">
+    <value>マーチャントキー</value>
+  </data>
+  <data name="PayUMerchantSaltSubText" xml:space="preserve">
+    <value>iDEAL加盟店IDを入力してください</value>
+  </data>
+  <data name="PayUSaltCaption" xml:space="preserve">
+    <value>PayU 商人塩:!</value>
+  </data>
+  <data name="PayUMerchantKeySubText" xml:space="preserve">
+    <value>iDEALマーチャントキーを入力してください。</value>
+  </data>
+  <data name="PayUAuthorizationCaption" xml:space="preserve">
+    <value>承認</value>
+  </data>
+  <data name="PayUAuthSubText" xml:space="preserve">
+    <value>名前を入力</value>
+  </data>
+  <data name="PayUPaymentConfigurationHeader" xml:space="preserve">
+    <value>PayUMoney 商人のアカウントの設定を提供する!</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPostfix" xml:space="preserve">
+    <value>新規口座開設のための3ステップ：</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPrefix" xml:space="preserve">
+    <value>顧客からの支払を受け取るためには、PayUMoney の商人の記述を使用するべきである、訪問しなさい:</value>
+  </data>
+  <data name="PayUWebsiteCaption" xml:space="preserve">
+    <value>payumoney.com</value>
   </data>
 </root>

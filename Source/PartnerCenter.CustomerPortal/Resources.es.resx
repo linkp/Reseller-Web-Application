@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -1226,5 +1226,44 @@
   </data>
   <data name="OrderProcessingFailureNotification" xml:space="preserve">
     <value>Falta en el orden de procesamiento. Por favor, haga clic en hecho y vuelva a intentarlo.</value>
+  </data>
+  <data name="CountryNameIN" xml:space="preserve">
+    <value>India</value>
+  </data>
+  <data name="PayUAccountTypeCaption" xml:space="preserve">
+    <value>Tpo de Cuenta</value>
+  </data>
+  <data name="PayUAccountTypeSubText" xml:space="preserve">
+    <value>Puede seleccionar un tipo de cuenta de prueba para probar sus transacciones. Una vez en marcha, se puede cambiar a un tipo de cuenta para empezar a tramitar</value>
+  </data>
+  <data name="PayUMerchantKeyCaption" xml:space="preserve">
+    <value>Merchant Key</value>
+  </data>
+  <data name="PayUMerchantSaltSubText" xml:space="preserve">
+    <value>Ingrese su identificación de comerciante</value>
+  </data>
+  <data name="PayUSaltCaption" xml:space="preserve">
+    <value>Merchant Salt</value>
+  </data>
+  <data name="PayUMerchantKeySubText" xml:space="preserve">
+    <value>Ingrese su identificación de comerciante</value>
+  </data>
+  <data name="PayUAuthorizationCaption" xml:space="preserve">
+    <value>Autorización</value>
+  </data>
+  <data name="PayUAuthSubText" xml:space="preserve">
+    <value>¡Entra en su autorización de PayU!</value>
+  </data>
+  <data name="PayUPaymentConfigurationHeader" xml:space="preserve">
+    <value>Configuración de la cuenta</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPostfix" xml:space="preserve">
+    <value>para crear una nueva cuenta mercantil si no tiene una.!</value>
+  </data>
+  <data name="PayUPaymentConfigurationSubTextPrefix" xml:space="preserve">
+    <value>Para recibir pagos de sus clientes, debe usar una cuenta de comerciante de PayUMoney, visite :!</value>
+  </data>
+  <data name="PayUWebsiteCaption" xml:space="preserve">
+    <value>payumoney.com</value>
   </data>
 </root>
