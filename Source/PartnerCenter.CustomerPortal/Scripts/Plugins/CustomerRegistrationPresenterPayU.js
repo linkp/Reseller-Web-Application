@@ -125,7 +125,8 @@ Microsoft.WebPortal.CustomerRegistrationPresenter = function (webPortal, feature
                     // Failure of Create Customer API Call. 
                     .fail(function (result, status, error) {                        
                         self.customerProfileView.viewModel.CustomerMicrosoftID(""); // we want this clear so that create customer call can be retried by user. 
-
+                        customerNotification = new Microsoft.WebPortal.Services.Notification(Microsoft.WebPortal.Services.Notification.NotificationType.Error, error);
+                        self.webPortal.Services.Notifications.add(customerNotification);
                         customerNotification.type(Microsoft.WebPortal.Services.Notification.NotificationType.Error);
                         customerNotification.buttons([
                             Microsoft.WebPortal.Services.Button.create(Microsoft.WebPortal.Services.Button.StandardButtons.OK, self.webPortal.Resources.Strings.OK, function () {
