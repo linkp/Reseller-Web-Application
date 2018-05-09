@@ -13,6 +13,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
     using System.Threading.Tasks;
     using Exceptions;
     using Models;
+    using PartnerCenter.Models.Customers;
     using PayUMoney;
 
     /// <summary>
@@ -249,9 +250,19 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal.BusinessLogic.Commerce.Pa
             string email = string.Empty;
             CustomerRegistrationRepository customerRegistrationRepository = new CustomerRegistrationRepository(ApplicationDomain.Instance);
             CustomerViewModel customerRegistrationInfo = await customerRegistrationRepository.RetrieveAsync(order.CustomerId);
-            fname = customerRegistrationInfo.FirstName;
-            phone = customerRegistrationInfo.Phone;
-            email = customerRegistrationInfo.Email;
+            if (customerRegistrationInfo == null)
+            {
+                Customer customer = await ApplicationDomain.Instance.PartnerCenterClient.Customers.ById(order.CustomerId).GetAsync();
+                fname = customer.BillingProfile.DefaultAddress.FirstName;
+                phone = customer.BillingProfile.DefaultAddress.PhoneNumber;
+                email = customer.BillingProfile.Email;
+            }
+            else
+            {
+                fname = customerRegistrationInfo.FirstName;
+                phone = customerRegistrationInfo.Phone;
+                email = customerRegistrationInfo.Email;
+            }
 
             decimal paymentTotal = 0;
             StringBuilder productSubs = new StringBuilder();

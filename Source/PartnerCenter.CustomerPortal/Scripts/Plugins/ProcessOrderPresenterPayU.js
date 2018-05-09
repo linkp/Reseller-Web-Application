@@ -48,6 +48,10 @@ Microsoft.WebPortal.ProcessOrderPresenter = function (webPortal, feature, proces
     }
 
     self.apiUrl = "";
+    if (!!self.viewModel.paymentId && self.viewModel.paymentId.toLowerCase() === "preapproved") {
+    	paymentId = self.viewModel.paymentId;
+    	txnId = self.viewModel.PayerID;
+    }
     var existingCustomerOrderUrl = "api/Order/Process" + "?paymentId=" + paymentId + "&payerId=" + txnId + "&orderId=" + self.viewModel.orderId;
     var newCustomerOrderUrl = "api/Order/NewCustomerProcessOrder" + "?customerId=" + self.viewModel.customerId + "&paymentId=" + paymentId + "&payerId=" + txnId;
 
