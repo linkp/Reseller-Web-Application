@@ -13,8 +13,8 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal
     using Azure.ActiveDirectory.GraphClient;
     using BusinessLogic;
     using Configuration;
-    using Exceptions;
     using IdentityModel.Clients.ActiveDirectory;
+    using IdentityModel.Tokens;
     using global::Owin;
     using Owin.Security;
     using Owin.Security.Cookies;
@@ -45,9 +45,9 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal
                 {
                     ClientId = ApplicationConfiguration.ActiveDirectoryClientID,
                     Authority = ApplicationConfiguration.ActiveDirectoryEndPoint + "common",
-                    TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters
+                    TokenValidationParameters = new TokenValidationParameters()
                     {
-                        // instead of using the default validation (validating against a single issuer value, as we do in line of business apps), 
+                        // instead of using the default validation (validating against a single issuer value, as we do in line of business apps),
                         // we inject our own multitenant validation logic
                         ValidateIssuer = false,
                     },
@@ -105,7 +105,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal
                                     // add the customer ID to the claims
                                     context.AuthenticationTicket.Identity.AddClaim(new System.Security.Claims.Claim("PartnerCenterCustomerID", partnerCenterCustomerId));
 
-                                    // fire off call to retrieve this customer's subscriptions and populate the CustomerSubscriptions Repository. 
+                                    // fire off call to retrieve this customer's subscriptions and populate the CustomerSubscriptions Repository.
                                 }
                             }
                             else
@@ -123,7 +123,7 @@ namespace Microsoft.Store.PartnerCenter.CustomerPortal
                         AuthenticationFailed = (context) =>
                         {
                             // redirect to the error page
-                            string errorMessage = (context.Exception.InnerException == null) ? 
+                            string errorMessage = (context.Exception.InnerException == null) ?
                                 context.Exception.Message : context.Exception.InnerException.Message;
                             context.OwinContext.Response.Redirect($"/Home/Error?errorMessage={errorMessage}");
 
